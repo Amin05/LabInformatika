@@ -79,31 +79,32 @@ public class AdapterMenu extends RecyclerView.Adapter<AdapterMenu.praktekholder>
                     case "1":
                         Intent intent = new Intent(ctx,BeritaActivity.class);
                         ctx.startActivity(intent);
-                        Log.i("aaaaaa1",praktek.id_menu);
+                        Log.i("ez_idMenu",praktek.id_menu);
                         break;
                     case "2":
                         Intent intent2 = new Intent(ctx,KegiatanActivity.class);
                         ctx.startActivity(intent2);
-                        Log.i("aaaaaa2",praktek.id_menu);
+                        Log.i("ez_idMenu",praktek.id_menu);
                         break;
 
                     case "3":
                         Intent intent3 = new Intent(ctx,KategoriLabActivity.class);
                         intent3.putExtra("id_menu",praktek.id_menu);
+                        intent3.putExtra("nama_menu","MENU INVENTARIS LAB");
                         ctx.startActivity(intent3);
-                        Log.i("aaaaaa2",praktek.id_menu);
+                        Log.i("ez_idMenu",praktek.id_menu);
                         break;
                     case "4":
                         Intent intent4 = new Intent(ctx,KategoriLabActivity.class);
                         intent4.putExtra("id_menu",praktek.id_menu);
                         ctx.startActivity(intent4);
-                        Log.i("aaaaaa2",praktek.id_menu);
+                        Log.i("ez_idMenu",praktek.id_menu);
                         break;
                     case "5":
                         Intent intent5 = new Intent(ctx,KategoriLabActivity.class);
                         intent5.putExtra("id_menu",praktek.id_menu);
                         ctx.startActivity(intent5);
-                        Log.i("aaaaaa2",praktek.id_menu);
+                        Log.i("ez_idMenu",praktek.id_menu);
                         break;
                 }
 

@@ -3,6 +3,7 @@ package com.example.m_aminpc.labinformatika.Activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
@@ -47,8 +49,6 @@ public class MenuActivity extends AppCompatActivity {
     private LinearLayout mLinearLayout;
 
     final static int timeout=5000;
-    private Context ctx;
-    private Activity avy;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager lml;
     private List<modelMenu> arrayofMenu = new ArrayList<>();
@@ -62,6 +62,9 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         sliderView = findViewById(R.id.sliderView);
+        //TextView textView=findViewById(R.id.textView);
+        //Typeface font= Typeface.createFromFile("font/abril_fatface.tff");
+        //textView.setTypeface(font);
         mLinearLayout = findViewById(R.id.pagesContainer);
         setupSlider();
         to_viewMenu();

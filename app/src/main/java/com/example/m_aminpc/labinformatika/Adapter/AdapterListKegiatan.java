@@ -81,14 +81,14 @@ public class AdapterListKegiatan extends RecyclerView.Adapter<AdapterListKegiata
         });
 
         holder.baca.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View v) {
-                                               Intent intent = new Intent(ctx, PenampilKegiatanActivity.class);
-                                               intent.putExtra("id_kegiatan", praktek.id_kegiatan);
-                                               //Log.i("ez",praktek.id_berita);
-                                               ctx.startActivity(intent);
-                                           }
-                                       }
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ctx, PenampilKegiatanActivity.class);
+                intent.putExtra("id_kegiatan", praktek.id_kegiatan);
+                //Log.i("ez",praktek.id_berita);
+                ctx.startActivity(intent);
+            }
+        }
 
         );
     }

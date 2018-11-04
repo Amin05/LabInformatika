@@ -117,11 +117,12 @@
             app:layout_constraintTop_toTopOf="@+id/guideline55" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aclonica"
             android:text="PILIH MENU"
+            android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline55"
             app:layout_constraintEnd_toStartOf="@+id/hrguideline95"
