@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
+            app:layout_constraintGuide_percent="0.98" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline3"
@@ -33,18 +33,11 @@
             app:layout_constraintGuide_percent="0.03" />
 
         <android.support.constraint.Guideline
-            android:id="@+id/guideline55"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.55" />
-
-        <android.support.constraint.Guideline
             android:id="@+id/guideline40"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.40" />
+            app:layout_constraintGuide_begin="227dp" />
 
         <android.support.constraint.Guideline
             android:id="@+id/hrguideline5"
@@ -110,21 +103,22 @@
             android:id="@+id/recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline95"
             app:layout_constraintEnd_toStartOf="@+id/hrguideline95"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/hrguideline5"
-            app:layout_constraintTop_toTopOf="@+id/guideline55" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/aclonica"
             android:text="PILIH MENU"
             android:textAlignment="center"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline55"
             app:layout_constraintEnd_toStartOf="@+id/hrguideline95"
             app:layout_constraintStart_toEndOf="@+id/hrguideline5"
             app:layout_constraintTop_toBottomOf="@+id/guideline40" />

@@ -28,11 +28,6 @@
         <activity android:name=".Activity.KategoriLabActivity" />
         <activity android:name=".Activity.BeritaActivity" />
         <activity android:name=".Activity.KegiatanActivity" />
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
         <activity android:name=".Penampil.PenampilKegiatanActivity"></activity>
     </application>
 

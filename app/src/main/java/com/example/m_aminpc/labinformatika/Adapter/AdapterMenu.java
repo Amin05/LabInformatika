@@ -97,12 +97,14 @@ public class AdapterMenu extends RecyclerView.Adapter<AdapterMenu.praktekholder>
                     case "4":
                         Intent intent4 = new Intent(ctx,KategoriLabActivity.class);
                         intent4.putExtra("id_menu",praktek.id_menu);
+                        intent4.putExtra("nama_menu","MENU MODUL PRAKTIKUM");
                         ctx.startActivity(intent4);
                         Log.i("ez_idMenu",praktek.id_menu);
                         break;
                     case "5":
                         Intent intent5 = new Intent(ctx,KategoriLabActivity.class);
                         intent5.putExtra("id_menu",praktek.id_menu);
+                        intent5.putExtra("nama_menu","MENU PENGURUS LAB");
                         ctx.startActivity(intent5);
                         Log.i("ez_idMenu",praktek.id_menu);
                         break;
