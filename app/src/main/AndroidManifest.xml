@@ -28,6 +28,9 @@
         <activity android:name=".Activity.KategoriLabActivity" />
         <activity android:name=".Activity.BeritaActivity" />
         <activity android:name=".Activity.KegiatanActivity" />
+        <activity android:name=".Activity.InventarisActivity" />
+        <!--    <activity android:name=".Activity.ModulActivity" />    -->
+        <activity android:name=".Activity.PengurusActivity" />
         <activity android:name=".Penampil.PenampilKegiatanActivity"></activity>
     </application>
 
