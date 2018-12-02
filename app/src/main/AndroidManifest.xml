@@ -10,28 +10,34 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.MenuActivity">
+        <activity android:name=".Penampil.PenampilBeritaActivity" />
+        <activity android:name=".Penampil.PenampilInventarisActivity" />
+        <activity android:name=".Penampil.PenampilKegiatanActivity" />
+        <activity android:name=".Penampil.PenampilPraktikumActivity" />
+        <activity android:name=".Penampil.PenampilPengurusActivity" />
+        <activity android:name=".Penampil.PenampilModulActivity" />
+        <activity android:name=".Activity.KategoriActivity" />
+        <activity android:name=".Activity.BeritaActivity" />
+        <activity android:name=".Activity.KegiatanActivity" />
+        <activity android:name=".Activity.InventarisActivity" />
+        <activity android:name=".Activity.PengurusActivity" />
+        <activity android:name=".Activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Penampil.PenampilBeritaActivity" />
-        <activity android:name=".Activity.KategoriLabActivity" />
-        <activity android:name=".Activity.BeritaActivity" />
-        <activity android:name=".Activity.KegiatanActivity" />
-        <activity android:name=".Activity.InventarisActivity" />
-        <!--    <activity android:name=".Activity.ModulActivity" />    -->
-        <activity android:name=".Activity.PengurusActivity" />
-        <activity android:name=".Penampil.PenampilKegiatanActivity"></activity>
+        <activity android:name=".Activity.PraktikumActivity" />
+        <activity android:name=".Activity.ModulActivity"></activity>
     </application>
 
 </manifest>

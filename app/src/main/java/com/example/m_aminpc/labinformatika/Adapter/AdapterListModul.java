@@ -16,16 +16,15 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.example.m_aminpc.labinformatika.API.MySingleton;
 import com.example.m_aminpc.labinformatika.API.Server;
-import com.example.m_aminpc.labinformatika.Model.modelInventaris;
-import com.example.m_aminpc.labinformatika.Model.modelPengurus;
-import com.example.m_aminpc.labinformatika.Penampil.PenampilKegiatanActivity;
-import com.example.m_aminpc.labinformatika.Penampil.PenampilPengurusActivity;
+import com.example.m_aminpc.labinformatika.Model.modelModul;
+import com.example.m_aminpc.labinformatika.Penampil.PenampilInventarisActivity;
+import com.example.m_aminpc.labinformatika.Penampil.PenampilModulActivity;
 import com.example.m_aminpc.labinformatika.R;
 
 import java.util.List;
 
-public class AdapterListPengurus extends RecyclerView.Adapter<AdapterListPengurus.praktekholder> {
-    public List<modelPengurus> listPengurus;
+public class AdapterListModul extends RecyclerView.Adapter<AdapterListModul.praktekholder> {
+    public List<modelModul> listModul;
     public Context ctx;
     public LayoutInflater lay;
     public ImageLoader imageLoader;
@@ -50,32 +49,31 @@ public class AdapterListPengurus extends RecyclerView.Adapter<AdapterListPenguru
 
     @Override
     public int getItemCount() {
-        return listPengurus.size();
+        return listModul.size();
     }
 
-    public AdapterListPengurus(List<modelPengurus> listpraktek, Context ctx) {
+    public AdapterListModul(List<modelModul> listpraktek, Context ctx) {
         this.imageLoader = MySingleton.getInstance(ctx).getImageLoader();
-        this.listPengurus = listpraktek;
+        this.listModul = listpraktek;
         this.ctx = ctx;
         this.lay = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
     }
 
     @NonNull
     @Override
-    public praktekholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterListModul.praktekholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View rootview = lay.inflate(R.layout.item_list_adapter, parent, false);
         return new praktekholder(rootview);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterListPengurus.praktekholder holder, int position) {
-        final modelPengurus praktek = listPengurus.get(position);
-        holder.judul.setText(praktek.nama_pengurus);
+    public void onBindViewHolder(@NonNull AdapterListModul.praktekholder holder, int position) {
+        final modelModul praktek = listModul.get(position);
+        holder.judul.setText(praktek.nama_modul);
         //holder.keterangan.setText("Tanggal  : "+ praktek.tanggal + "\nJam  : " + praktek.waktu + " WIB ");
 
-        holder.gambar.setImageUrl(Server.URL + "gambar/gambarPengurus/" + praktek.gambar_pengurus, imageLoader);
-        holder.keterangan.setText("Jabatan : "+ praktek.jabatan);
+        holder.gambar.setImageUrl(Server.URL + "gambar/gambarModul/" + praktek.gambar_modul, imageLoader);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,10 +83,9 @@ public class AdapterListPengurus extends RecyclerView.Adapter<AdapterListPenguru
         holder.baca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ctx, PenampilPengurusActivity.class);
-                intent.putExtra("id_pengurus", praktek.id_pengurus);
-                intent.putExtra("id_lab", praktek.id_lab);
-                Log.i("ez",""+praktek.id_pengurus);
+                Intent intent = new Intent(ctx, PenampilModulActivity.class);
+                intent.putExtra("file", praktek.file_modul);
+                Log.i("ez",""+praktek.id_modul);
                 ctx.startActivity(intent);
             }
         });

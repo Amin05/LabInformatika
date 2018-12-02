@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,10 +22,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.m_aminpc.labinformatika.API.Server;
-import com.example.m_aminpc.labinformatika.Adapter.AdapterKategoriLab;
-import com.example.m_aminpc.labinformatika.Adapter.AdapterListKegiatan;
-import com.example.m_aminpc.labinformatika.Model.modelKategoriLab;
-import com.example.m_aminpc.labinformatika.Model.modelKegiatan;
+import com.example.m_aminpc.labinformatika.Adapter.AdapterListInventaris;
+import com.example.m_aminpc.labinformatika.Adapter.AdapterListPraktikum;
+import com.example.m_aminpc.labinformatika.Model.modelInventaris;
+import com.example.m_aminpc.labinformatika.Model.modelPraktikum;
 import com.example.m_aminpc.labinformatika.R;
 
 import org.json.JSONArray;
@@ -35,48 +35,43 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KategoriLabActivity extends AppCompatActivity {
-    TextView nama_menu;
-    final static int timeout = 5000;
+public class PraktikumActivity extends AppCompatActivity {
+    TextView tvNmMenu;
+    final static int timeout=5000;
     private Context ctx;
     private Activity avy;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager lml;
-    private List<modelKategoriLab> arrayofKategori = new ArrayList<>();
-    private AdapterKategoriLab adapterListKategori;
-    private String url = Server.URL + "kategoriLab.php?id_menu=";
-    final static RetryPolicy policy = new DefaultRetryPolicy(timeout, 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+    private List<modelPraktikum> arrayofPraktikum = new ArrayList<>();
+    private AdapterListPraktikum adapterListPraktikum;
+    private String url= Server.URL+"listLabMenu.php?id_menu=6&id_lab=";
+    final static RetryPolicy policy=new DefaultRetryPolicy(timeout,1,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kategori_lab);
-        Intent intent=this.getIntent();
-        int menu = Integer.valueOf(intent.getStringExtra("id_menu"));
-        to_viewKategori(menu);
-        Log.i(intent.getStringExtra("id_menu"), "ezRes");
-
-        nama_menu=findViewById(R.id.tvMenu);
-        nama_menu.setText(intent.getStringExtra("nama_menu"));
-        //url= url+ Integer.valueOf(intent.getStringExtra("id_menu"));
-        //Log.i("ezUrl",url);
+        setContentView(R.layout.activity_list);
+        Intent intent = this.getIntent();
+        tvNmMenu=findViewById(R.id.tvNmMenu);
+        tvNmMenu.setText("LIST PRAKTIKUM\n"+ intent.getStringExtra("nama_lab"));
+        tvNmMenu.setGravity(Gravity.CENTER);
+        int lab = Integer.valueOf(intent.getIntExtra(String.valueOf("id_lab"),0));
+        //Log.i("ezz"+intent.getIntExtra(String.valueOf("id_lab"),0), "berhasil");
+        to_viewInventaris(lab);
     }
 
-    private void to_viewKategori(int id_menu) {
+    private void to_viewInventaris(int id_lab) {
 
-        url= url+ String.valueOf(id_menu);
-
-        Log.i("ezUrl",url);
+        url= url+Integer.valueOf(id_lab);
 
         recyclerView = findViewById(R.id.recycler_view);
-        lml = new GridLayoutManager(this,3);
+        lml=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(lml);
-        adapterListKategori = new AdapterKategoriLab(arrayofKategori, this);
-        recyclerView.setAdapter(adapterListKategori);
+        adapterListPraktikum = new AdapterListPraktikum(arrayofPraktikum, this);
+        recyclerView.setAdapter(adapterListPraktikum);
         recyclerView.setVisibility(View.VISIBLE);
-        //final Intent intent = getIntent();
-        //url= url+"?id_berita="+intent.getStringExtra("id");
+
 
         StringRequest kirim = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -86,9 +81,9 @@ public class KategoriLabActivity extends AppCompatActivity {
                     JSONArray ja = new JSONArray(response);
                     for (int i = 0; i < ja.length(); i++) {
                         JSONObject jo = new JSONObject(ja.get(i).toString());
-                        arrayofKategori.add(new modelKategoriLab(jo.getInt("id_lab"), jo.getString("nama_lab"),jo.getString("gambar_lab")));
+                        arrayofPraktikum.add(new modelPraktikum(jo.getInt("id_praktikum"),jo.getInt("id_lab"), jo.getString("nama_praktikum"),jo.getString("tanggal"), jo.getString("waktu"), jo.getString("tempat"), jo.getString("asisten_lab"),jo.getString("gambar"), jo.getString("keterangan")));
                     }
-                    adapterListKategori.notifyDataSetChanged();
+                    adapterListPraktikum.notifyDataSetChanged();
                 } catch (JSONException jeo) {
                     Log.i("ez2", jeo.getMessage());
 

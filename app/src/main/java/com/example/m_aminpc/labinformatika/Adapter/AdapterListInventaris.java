@@ -18,6 +18,7 @@ import com.example.m_aminpc.labinformatika.API.MySingleton;
 import com.example.m_aminpc.labinformatika.API.Server;
 import com.example.m_aminpc.labinformatika.Model.modelInventaris;
 import com.example.m_aminpc.labinformatika.Model.modelKegiatan;
+import com.example.m_aminpc.labinformatika.Penampil.PenampilInventarisActivity;
 import com.example.m_aminpc.labinformatika.Penampil.PenampilKegiatanActivity;
 import com.example.m_aminpc.labinformatika.R;
 
@@ -84,8 +85,9 @@ public class AdapterListInventaris extends RecyclerView.Adapter<AdapterListInven
         holder.baca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ctx, PenampilKegiatanActivity.class);
+                Intent intent = new Intent(ctx, PenampilInventarisActivity.class);
                 intent.putExtra("id_inventaris", praktek.id_inventaris);
+                intent.putExtra("id_lab", praktek.id_lab);
                 Log.i("ez",""+praktek.id_inventaris);
                 ctx.startActivity(intent);
             }
