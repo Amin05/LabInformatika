@@ -29,15 +29,17 @@
         <activity android:name=".Activity.KegiatanActivity" />
         <activity android:name=".Activity.InventarisActivity" />
         <activity android:name=".Activity.PengurusActivity" />
-        <activity android:name=".Activity.HomeActivity">
+        <activity android:name=".Activity.HomeActivity"/>
+        <activity android:name=".Activity.PraktikumActivity" />
+        <activity android:name=".Activity.ModulActivity" />
+        <activity android:name=".SplashScreen.WelcomeActivity" />
+        <activity android:name=".SplashScreen.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.PraktikumActivity" />
-        <activity android:name=".Activity.ModulActivity"></activity>
     </application>
 
 </manifest>
