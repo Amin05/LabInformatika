@@ -43,7 +43,7 @@ public class AdapterListPengurus extends RecyclerView.Adapter<AdapterListPenguru
             this.baca = itemView.findViewById(R.id.btnBaca);
             this.cvList = itemView.findViewById(R.id.cvList);
             this.keterangan = itemView.findViewById(R.id.tvKeterangan);
-            this.baca.setText("BACA");
+            this.baca.setText("LIHAT");
         }
     }
 

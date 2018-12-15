@@ -32,18 +32,16 @@ public ImageLoader imageLoader;
 
 public class praktekholder extends RecyclerView.ViewHolder {
     TextView judul,keterangan;
-    NetworkImageView gambar;
     Button baca;
     CardView cvList;
 
     public praktekholder(View itemView) {
         super(itemView);
         this.judul = itemView.findViewById(R.id.tvJudul);
-        this.gambar = itemView.findViewById(R.id.imgGambar);
         this.baca = itemView.findViewById(R.id.btnBaca);
         this.cvList = itemView.findViewById(R.id.cvList);
         this.keterangan = itemView.findViewById(R.id.tvKeterangan);
-        this.baca.setText("BACA");
+        this.baca.setText("LIHAT");
     }
 }
 
@@ -63,7 +61,7 @@ public class praktekholder extends RecyclerView.ViewHolder {
     @NonNull
     @Override
     public AdapterListPraktikum.praktekholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rootview = lay.inflate(R.layout.item_list_adapter, parent, false);
+        View rootview = lay.inflate(R.layout.item_list_adapter2, parent, false);
         return new praktekholder(rootview);
 
     }
@@ -72,10 +70,7 @@ public class praktekholder extends RecyclerView.ViewHolder {
     public void onBindViewHolder(@NonNull AdapterListPraktikum.praktekholder holder, int position) {
         final modelPraktikum praktek = listPengurus.get(position);
         holder.judul.setText(praktek.nama_praktikum);
-        //holder.keterangan.setText("Tanggal  : "+ praktek.tanggal + "\nJam  : " + praktek.waktu + " WIB ");
-
-        holder.gambar.setImageUrl(Server.URL + "gambar/gambarPraktikum/" + praktek.gambar, imageLoader);
-        holder.keterangan.setText("Tanggal  : "+ praktek.tanggal + "\nJam  : " + praktek.waktu + " WIB ");
+        holder.keterangan.setText("Hari  : "+praktek.hari+"\nTanggal  : "+ praktek.tanggal + "\nJam  : " + praktek.waktu + " WIB ");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

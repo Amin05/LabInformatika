@@ -63,8 +63,8 @@ public class PenampilPraktikumActivity extends AppCompatActivity {
                     JSONArray ja = new JSONArray(response);
                     JSONObject jo = new JSONObject(ja.get(0).toString());
                     tvJudul.setText(jo.getString("nama_praktikum"));
-                    tvDeskripsi.setText(jo.getString("keterangan"));
-                    tvKeterangan.setText("Tanggal   : "+jo.getString("tanggal")+ "\nJam    : "+jo.getString("waktu")+ " WIB"+ "\nTempat   : "+jo.getString("tempat"));
+                    tvDeskripsi.setText(jo.getString( "keterangan"));
+                    tvKeterangan.setText("Hari          : "+jo.getString("hari")+"\nTanggal   : "+jo.getString("tanggal")+ "\nJam         : "+jo.getString("waktu")+ " WIB"+ "\nTempat   : "+jo.getString("tempat")+"\nASLAB    : "+jo.getString("asisten_lab"));
                     imgBerita.setImageUrl(Server.URL+"gambar/gambarPraktikum/"+ jo.getString("gambar"),imageLoader);
 
                     //adapterBerita.notifyDataSetChanged();
